@@ -1,11 +1,11 @@
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
-        list1 = [[]]
-        n=len(nums)
-        for i in range(1,2**n):
-            list2=[]
-            for j in range(n):
-                if (i&1<<j):
-                    list2.append(nums[j])
-            list1.append(list2)
-        return list1
+    def reverseString(self, s):
+        end = len(s) - 1
+        def recursiveReverse(s, i):
+            if i < len(s)/2:
+                s[i], s[end-i] = s[end-i],s[i]
+                i =  i + 1
+                recursiveReverse(s,i)
+            else:
+                return
+        recursiveReverse(s,0)
